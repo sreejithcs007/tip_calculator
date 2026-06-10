@@ -1,0 +1,83 @@
+<svg width="200" height="200" viewBox="0 0 200 200"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Stars -->
+  <g fill="#BDF3EA">
+    <path d="M25 50 L30 55 L25 60 L20 55 Z">
+      <animate attributeName="opacity"
+               values="0.2;1;0.2"
+               dur="2s"
+               repeatCount="indefinite"/>
+    </path>
+
+    <path d="M170 45 L175 50 L170 55 L165 50 Z">
+      <animate attributeName="opacity"
+               values="1;0.2;1"
+               dur="2.5s"
+               repeatCount="indefinite"/>
+    </path>
+
+    <path d="M180 90 L184 94 L180 98 L176 94 Z">
+      <animate attributeName="opacity"
+               values="0.3;1;0.3"
+               dur="1.8s"
+               repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Main Circle -->
+  <g>
+    <circle cx="100" cy="100" r="55"
+            fill="#25C8B5">
+      <animate attributeName="r"
+               values="55;58;55"
+               dur="2s"
+               repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Coins -->
+  <g transform-origin="130 120">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="-5 130 120;5 130 120;-5 130 120"
+      dur="2s"
+      repeatCount="indefinite"/>
+
+    <circle cx="125" cy="118" r="12" fill="#FFD54F"/>
+    <circle cx="137" cy="125" r="12" fill="#FFC107"/>
+  </g>
+
+  <!-- Receipt -->
+  <g>
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0;0 -5;0 0"
+      dur="1.5s"
+      repeatCount="indefinite"/>
+
+    <path d="
+      M75 60
+      H125
+      V135
+      L118 128
+      L111 135
+      L104 128
+      L97 135
+      L90 128
+      L83 135
+      L75 128
+      Z"
+      fill="white"/>
+
+    <text x="100"
+          y="103"
+          text-anchor="middle"
+          font-size="32"
+          font-weight="bold"
+          fill="#00897B">%</text>
+  </g>
+
+</svg>
