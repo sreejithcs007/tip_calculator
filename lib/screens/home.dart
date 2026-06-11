@@ -17,7 +17,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     controller = Get.put(HomeScreenController());
     super.initState();
   }
@@ -75,7 +74,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(height: 20),
                     TextFormField(
+                      style: GoogleFonts.inter(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black87,
+                      ),
                       keyboardType: TextInputType.number,
+                      controller: controller.billAmountTextController,
                       decoration: InputDecoration(
                         hintText: 'Enter bill amount',
                         hintStyle: TextStyle(color: Color(0xFFB9BEC5)),
@@ -132,7 +137,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(height: 20),
 
                     TextFormField(
+                      controller: controller.customTipPercentageTextController,
                       keyboardType: TextInputType.number,
+                      style: GoogleFonts.inter(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black87,
+                      ),
                       decoration: InputDecoration(
                         hintText: 'Custom tip',
                         hintStyle: TextStyle(color: Color(0xFFB9BEC5)),
@@ -165,36 +176,41 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(height: 20),
                     TextFormField(
-                        // initialValue: controller.personCount.value.toString(),
-                        controller: controller.personTextController,
-                        keyboardType: TextInputType.number,
-                        textAlign: TextAlign.center,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.grey.shade50,
-                          suffixIcon: IconButton(
-                            onPressed: () {
-                              controller.personCountIncrement();
-                            },
-                            icon: Icon(Icons.add),
-                          ),
-                          prefixIcon: IconButton(
-                            onPressed: () {
-                              controller.personCountDecrement(context);
-                            },
-                            icon: Icon(Icons.remove,),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(14)),
-                            borderSide: BorderSide(color: Color(0xFFE5E7EB)),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(14)),
-                      
-                            borderSide: BorderSide(color: Color(0xFFE5E7EB)),
-                          ),
+                      // initialValue: controller.personCount.value.toString(),
+                      controller: controller.personTextController,
+
+                      keyboardType: TextInputType.number,
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.inter(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black87,
+                      ),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey.shade50,
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            controller.personCountIncrement();
+                          },
+                          icon: Icon(Icons.add),
                         ),
-                      
+                        prefixIcon: IconButton(
+                          onPressed: () {
+                            controller.personCountDecrement(context);
+                          },
+                          icon: Icon(Icons.remove),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(14)),
+                          borderSide: BorderSide(color: Color(0xFFE5E7EB)),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(14)),
+
+                          borderSide: BorderSide(color: Color(0xFFE5E7EB)),
+                        ),
+                      ),
                     ),
                     SizedBox(height: 20),
                   ],

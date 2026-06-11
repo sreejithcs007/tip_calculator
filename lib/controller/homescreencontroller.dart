@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 class HomeScreenController extends GetxController {
   var personCount = 1.obs;
   final TextEditingController personTextController = TextEditingController();
+  final TextEditingController billAmountTextController = TextEditingController();
+  final TextEditingController customTipPercentageTextController = TextEditingController();
   
 
   void personCountIncrement() {
@@ -25,7 +27,6 @@ class HomeScreenController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     personTextController.text = personCount.value.toString();
     super.onInit();
   }
