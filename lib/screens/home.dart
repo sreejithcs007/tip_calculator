@@ -122,7 +122,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(height: 20),
 
-                    TipSelector(),
+                    Obx(
+                      () => TipSelector(
+                        selectedTip: controller.selectedTip.value,
+                        tips: const [5, 10, 15, 20, 25],
+                        onTipSelected: (tip) {
+                          controller.selectedTip.value = tip;
+                          controller.customTipPercentageTextController.text =
+                              tip.toString();
+                        },
+                      ),
+                    ),
                     SizedBox(height: 20),
                     Divider(color: Colors.grey.shade200, thickness: 1),
                     SizedBox(height: 20),
@@ -160,6 +170,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderSide: BorderSide(color: Color(0xFFE5E7EB)),
                         ),
                       ),
+                      onChanged: (value) {
+                        final tip = int.tryParse(value);
+                        if (tip != null) {
+                          controller.selectedTip.value = tip;
+                        }
+                      },
                     ),
 
                     SizedBox(height: 20),

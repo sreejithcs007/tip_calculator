@@ -6,6 +6,7 @@ class HomeScreenController extends GetxController {
   final TextEditingController personTextController = TextEditingController();
   final TextEditingController billAmountTextController = TextEditingController();
   final TextEditingController customTipPercentageTextController = TextEditingController();
+  final selectedTip = 15.obs;
   
 
   void personCountIncrement() {
