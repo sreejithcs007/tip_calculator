@@ -1,11 +1,14 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:tip_calculator/controller/homescreencontroller.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key});
+  ResultScreen({super.key});
 
+  final HomeScreenController controller = Get.find<HomeScreenController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +17,6 @@ class ResultScreen extends StatelessWidget {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        // automaticallyImplyLeading: false,
         title: Text(
           'Tip Result',
           style: GoogleFonts.poppins(
@@ -23,7 +25,6 @@ class ResultScreen extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        // backgroundColor: const Color.fromARGB(255, 243, 241, 241),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -56,7 +57,7 @@ class ResultScreen extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 24,
                         fontWeight: FontWeight.w700,
-                        color:  Color(0xFF0F9D8A)
+                        color: Color(0xFF0F9D8A),
                       ),
                     ),
 
@@ -77,7 +78,7 @@ class ResultScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Rs.100',
+                         '₹ ${ controller.billAmountTextController.text}',
                           style: GoogleFonts.inter(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -91,7 +92,7 @@ class ResultScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Tip 15%',
+                          'Tip ${controller.selectedTip.value}%',
                           style: GoogleFonts.inter(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -99,7 +100,7 @@ class ResultScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Rs.15',
+                          '₹ ${controller.tipAmount.value}',
                           style: GoogleFonts.inter(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -129,7 +130,7 @@ class ResultScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Rs.115',
+                          '₹ ${controller.totalAmount.value}',
                           style: GoogleFonts.inter(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
@@ -151,7 +152,7 @@ class ResultScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Rs.57.50',
+                          '₹ ${controller.perPersonAmount.value}',
                           style: GoogleFonts.inter(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
@@ -160,12 +161,13 @@ class ResultScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 30),
                     SizedBox(
                       width: double.infinity,
                       height: 55,
                       child: ElevatedButton(
                         onPressed: () {
+                          controller.resetData();
                           Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(

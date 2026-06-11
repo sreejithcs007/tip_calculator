@@ -25,7 +25,6 @@ class OnboardingScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // SvgPicture.asset('assets/svg/logo1.png', height: 240),
                       Image.asset('assets/svg/logo1.png', height: 240),
 
                       const SizedBox(height: 20),
@@ -44,8 +43,8 @@ class OnboardingScreen extends StatelessWidget {
                         'Calculate tips and split bills effortlessly.',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.inter(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
                           color: const Color(0xFF6B7280),
                         ),
                       ),

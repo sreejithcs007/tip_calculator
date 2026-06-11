@@ -192,7 +192,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(height: 20),
                     TextFormField(
-                      // initialValue: controller.personCount.value.toString(),
                       controller: controller.personTextController,
 
                       keyboardType: TextInputType.number,
@@ -241,9 +240,19 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 55,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ResultScreen()),
+                  controller.calculatePerPerson(
+                    billAmount:
+                        double.tryParse(
+                          controller.billAmountTextController.text,
+                        ) ??
+                        0,
+                    tipPercentage:
+                        double.tryParse(
+                          controller.selectedTip.value.toString(),
+                        ) ??
+                        0,
+                    peopleCount: controller.personCount.value,
+                    context: context,
                   );
                 },
                 style: ElevatedButton.styleFrom(
