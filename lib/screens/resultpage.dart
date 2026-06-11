@@ -9,7 +9,7 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2FBF9),
+      backgroundColor: const Color(0xFFF8FAFA),
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
@@ -34,7 +34,7 @@ class ResultScreen extends StatelessWidget {
                 padding: EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  border: Border.all(color: const Color(0xFFF1F5F9), width: 1),
+                  border: Border.all(color: const Color(0xFFE5E7EB), width: 1),
                   borderRadius: BorderRadius.all(Radius.circular(25)),
                   boxShadow: [
                     BoxShadow(
@@ -54,9 +54,9 @@ class ResultScreen extends StatelessWidget {
                     Text(
                       'Here\'s Your Tip!',
                       style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: const Color.fromARGB(255, 37, 200, 146),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                        color:  Color(0xFF0F9D8A)
                       ),
                     ),
 
@@ -71,17 +71,17 @@ class ResultScreen extends StatelessWidget {
                         Text(
                           'Bill Amount',
                           style: GoogleFonts.inter(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF374151),
                           ),
                         ),
                         Text(
                           'Rs.100',
                           style: GoogleFonts.inter(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF111827),
                           ),
                         ),
                       ],
@@ -93,17 +93,17 @@ class ResultScreen extends StatelessWidget {
                         Text(
                           'Tip 15%',
                           style: GoogleFonts.inter(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF374151),
                           ),
                         ),
                         Text(
                           'Rs.15',
                           style: GoogleFonts.inter(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF0F9D8A),
                           ),
                         ),
                       ],
@@ -124,16 +124,16 @@ class ResultScreen extends StatelessWidget {
                           'Total Amount',
                           style: GoogleFonts.inter(
                             fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF374151),
                           ),
                         ),
                         Text(
                           'Rs.115',
                           style: GoogleFonts.inter(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF0F9D8A),
                           ),
                         ),
                       ],
@@ -146,16 +146,16 @@ class ResultScreen extends StatelessWidget {
                           'Amount Per Person',
                           style: GoogleFonts.inter(
                             fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF374151),
                           ),
                         ),
                         Text(
                           'Rs.57.50',
                           style: GoogleFonts.inter(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF0F9D8A),
                           ),
                         ),
                       ],

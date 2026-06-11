@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TipSelector extends StatefulWidget {
   const TipSelector({super.key});
@@ -17,51 +18,52 @@ class _TipSelectorState extends State<TipSelector> {
     return Wrap(
       spacing: 12,
       runSpacing: 12,
-      children: tips.map((tip) {
-        final isSelected = selectedTip == tip;
+      children:
+          tips.map((tip) {
+            final isSelected = selectedTip == tip;
 
-        return GestureDetector(
-          onTap: () {
-            setState(() {
-              selectedTip = tip;
-            });
-          },
-          child: Container(
-            width: 60,
-            height: 50,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: isSelected
-                  ? const Color(0xFF25C8B5)
-                  : Colors.white,
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                color: Colors.grey.shade300,
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedTip = tip;
+                });
+              },
+              child: Container(
+                width: 60,
+                height: 50,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: isSelected ? const Color(0xFF25C8B5) : Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.grey.shade300),
+                  boxShadow:
+                      isSelected
+                          ? [
+                            BoxShadow(
+                              color: const Color(0xFF25C8B5).withOpacity(0.3),
+                              blurRadius: 10,
+                              offset: const Offset(0, 4),
+                            ),
+                          ]
+                          : [],
+                ),
+                child: Text(
+                  '$tip%',
+                  // style: TextStyle(
+                  //   fontSize: 18,
+                  //   fontWeight: FontWeight.w600,
+                  //   color:
+                  //       isSelected ? Colors.white : Colors.black87,
+                  // ),
+                  style: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: isSelected ? FontWeight.w700 : FontWeight.w600,
+                    color: isSelected ? Colors.white : Colors.black87,
+                  ),
+                ),
               ),
-              boxShadow: isSelected
-                  ? [
-                      BoxShadow(
-                        color: const Color(
-                          0xFF25C8B5,
-                        ).withOpacity(0.3),
-                        blurRadius: 10,
-                        offset: const Offset(0, 4),
-                      ),
-                    ]
-                  : [],
-            ),
-            child: Text(
-              '$tip%',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color:
-                    isSelected ? Colors.white : Colors.black87,
-              ),
-            ),
-          ),
-        );
-      }).toList(),
+            );
+          }).toList(),
     );
   }
 }

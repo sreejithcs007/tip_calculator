@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tip_calculator/screens/home.dart';
 
@@ -14,7 +13,7 @@ class OnboardingScreen extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFF7FAFA), Color(0xFFEAF8F5)],
+            colors: [Color(0xFFF7FAFA), Color(0xFFF4FAF8)],
           ),
         ),
         child: SafeArea(
@@ -26,7 +25,8 @@ class OnboardingScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset('assets/svg/logo.svg', height: 240),
+                      // SvgPicture.asset('assets/svg/logo1.png', height: 240),
+                      Image.asset('assets/svg/logo1.png', height: 240),
 
                       const SizedBox(height: 20),
 
@@ -66,7 +66,7 @@ class OnboardingScreen extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       shadowColor: Color(0x3325C8B5),
-                      backgroundColor: const Color(0xFF25C8B5),
+                      backgroundColor: const Color(0xFF00A99D),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),

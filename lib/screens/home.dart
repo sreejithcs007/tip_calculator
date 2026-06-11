@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tip_calculator/controller/homescreencontroller.dart';
 import 'package:tip_calculator/customwidget/tipselect.dart';
 import 'package:tip_calculator/screens/resultpage.dart';
 
@@ -11,6 +13,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late HomeScreenController controller = HomeScreenController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    controller = Get.put(HomeScreenController());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading: false,
         title: Text(
           '💸 Tip Calculator',
-          style: GoogleFonts.poppins(
+          style: GoogleFonts.inter(
             fontSize: 20,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
+            fontWeight: FontWeight.w700,
+            color: Color(0xFF1B2733),
           ),
         ),
         // backgroundColor: const Color.fromARGB(255, 243, 241, 241),
@@ -40,11 +51,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(color: const Color(0xFFF1F5F9), width: 1),
-                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                  borderRadius: BorderRadius.all(Radius.circular(24)),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.06),
+                      color: Colors.black.withOpacity(0.05),
                       blurRadius: 20,
+                      offset: Offset(0, 8),
                     ),
                   ],
                 ),
@@ -57,8 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Bill Amount',
                       style: GoogleFonts.inter(
                         fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF1B2733),
                       ),
                     ),
                     SizedBox(height: 20),
@@ -66,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintText: 'Enter bill amount',
-                        hintStyle: TextStyle(color: Colors.grey.shade400),
+                        hintStyle: TextStyle(color: Color(0xFFB9BEC5)),
                         filled: true,
                         fillColor: Colors.grey.shade50,
                         prefixIcon: Container(
@@ -81,11 +93,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                          borderRadius: BorderRadius.all(Radius.circular(14)),
                           borderSide: BorderSide(color: Color(0xFFE5E7EB)),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                          borderRadius: BorderRadius.all(Radius.circular(14)),
 
                           borderSide: BorderSide(color: Color(0xFFE5E7EB)),
                         ),
@@ -99,8 +111,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Select Tip %',
                       style: GoogleFonts.inter(
                         fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF1B2733),
                       ),
                     ),
                     SizedBox(height: 20),
@@ -113,8 +125,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Custom Tip',
                       style: GoogleFonts.inter(
                         fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF1B2733),
                       ),
                     ),
                     SizedBox(height: 20),
@@ -123,16 +135,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintText: 'Custom tip',
-                        hintStyle: TextStyle(color: Colors.grey.shade400),
+                        hintStyle: TextStyle(color: Color(0xFFB9BEC5)),
                         filled: true,
                         fillColor: Colors.grey.shade50,
                         suffixIcon: Icon(Icons.percent),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                          borderRadius: BorderRadius.all(Radius.circular(14)),
                           borderSide: BorderSide(color: Color(0xFFE5E7EB)),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                          borderRadius: BorderRadius.all(Radius.circular(14)),
 
                           borderSide: BorderSide(color: Color(0xFFE5E7EB)),
                         ),
@@ -147,29 +159,42 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Number of people',
                       style: GoogleFonts.inter(
                         fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF1B2733),
                       ),
                     ),
                     SizedBox(height: 20),
                     TextFormField(
-                      initialValue: '1',
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.grey.shade50,
-                        suffixIcon: Icon(Icons.add),
-                        prefixIcon: Icon(Icons.remove),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
-                          borderSide: BorderSide(color: Color(0xFFE5E7EB)),
+                        // initialValue: controller.personCount.value.toString(),
+                        controller: controller.personTextController,
+                        keyboardType: TextInputType.number,
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.grey.shade50,
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              controller.personCountIncrement();
+                            },
+                            icon: Icon(Icons.add),
+                          ),
+                          prefixIcon: IconButton(
+                            onPressed: () {
+                              controller.personCountDecrement(context);
+                            },
+                            icon: Icon(Icons.remove,),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(14)),
+                            borderSide: BorderSide(color: Color(0xFFE5E7EB)),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(14)),
+                      
+                            borderSide: BorderSide(color: Color(0xFFE5E7EB)),
+                          ),
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
-
-                          borderSide: BorderSide(color: Color(0xFFE5E7EB)),
-                        ),
-                      ),
+                      
                     ),
                     SizedBox(height: 20),
                   ],
@@ -199,9 +224,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Text(
                   'Calculate',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                  style: GoogleFonts.inter(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
                   ),
                 ),
               ),
